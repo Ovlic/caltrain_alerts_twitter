@@ -1,0 +1,470 @@
+{
+    "ServiceDelivery": {
+        "ResponseTimestamp": "2022-10-04T17:39:45Z",
+        "ProducerRef": "CT",
+        "Status": true,
+        "StopMonitoringDelivery": {
+            "version": "1.4",
+            "ResponseTimestamp": "2022-10-04T17:39:45Z",
+            "Status": true,
+            "MonitoredStopVisit": [
+                {
+                    "RecordedAtTime": "2022-10-04T17:39:39Z",
+                    "MonitoringRef": "70172",
+                    "MonitoredVehicleJourney": {
+                        "LineRef": "L1",
+                        "DirectionRef": "S",
+                        "FramedVehicleJourneyRef": {
+                            "DataFrameRef": "2022-10-04",
+                            "DatedVehicleJourneyRef": "112"
+                        },
+                        "PublishedLineName": "Local",
+                        "OperatorRef": "CT",
+                        "OriginRef": "70012",
+                        "OriginName": "San Francisco Caltrain Station",
+                        "DestinationRef": "70272",
+                        "DestinationName": "Tamien",
+                        "Monitored": true,
+                        "InCongestion": null,
+                        "VehicleLocation": {
+                            "Longitude": "-122.181778",
+                            "Latitude": "37.4543915"
+                        },
+                        "Bearing": null,
+                        "Occupancy": null,
+                        "VehicleRef": "112",
+                        "MonitoredCall": {
+                            "StopPointRef": "70172",
+                            "StopPointName": "Palo Alto Caltrain Station",
+                            "VehicleLocationAtStop": "",
+                            "VehicleAtStop": "",
+                            "AimedArrivalTime": "2022-10-04T17:41:00Z",
+                            "ExpectedArrivalTime": "2022-10-04T17:40:07Z",
+                            "AimedDepartureTime": "2022-10-04T17:41:00Z",
+                            "ExpectedDepartureTime": "2022-10-04T17:41:45Z",
+                            "Distances": ""
+                        }
+                    }
+                },
+                {
+                    "RecordedAtTime": "2022-10-04T17:39:39Z",
+                    "MonitoringRef": "70131",
+                    "MonitoredVehicleJourney": {
+                        "LineRef": "L1",
+                        "DirectionRef": "N",
+                        "FramedVehicleJourneyRef": {
+                            "DataFrameRef": "2022-10-04",
+                            "DatedVehicleJourneyRef": "113"
+                        },
+                        "PublishedLineName": "Local",
+                        "OperatorRef": "CT",
+                        "OriginRef": "70271",
+                        "OriginName": "Tamien Caltrain Station",
+                        "DestinationRef": "70011",
+                        "DestinationName": "San Francisco",
+                        "Monitored": true,
+                        "InCongestion": null,
+                        "VehicleLocation": {
+                            "Longitude": "-122.229507",
+                            "Latitude": "37.4846001"
+                        },
+                        "Bearing": null,
+                        "Occupancy": null,
+                        "VehicleRef": "113",
+                        "MonitoredCall": {
+                            "StopPointRef": "70131",
+                            "StopPointName": "San Carlos Caltrain Station",
+                            "VehicleLocationAtStop": "",
+                            "VehicleAtStop": "",
+                            "AimedArrivalTime": "2022-10-04T17:42:00Z",
+                            "ExpectedArrivalTime": "2022-10-04T17:41:39Z",
+                            "AimedDepartureTime": "2022-10-04T17:42:00Z",
+                            "ExpectedDepartureTime": "2022-10-04T17:42:39Z",
+                            "Distances": ""
+                        }
+                    }
+                },
+                {
+                    "RecordedAtTime": "2022-10-04T17:39:39Z",
+                    "MonitoringRef": "70261",
+                    "MonitoredVehicleJourney": {
+                        "LineRef": "L5",
+                        "DirectionRef": "N",
+                        "FramedVehicleJourneyRef": {
+                            "DataFrameRef": "2022-10-04",
+                            "DatedVehicleJourneyRef": "505"
+                        },
+                        "PublishedLineName": "LTD 5",
+                        "OperatorRef": "CT",
+                        "OriginRef": "70261",
+                        "OriginName": "San Jose Diridon Caltrain Station",
+                        "DestinationRef": "70011",
+                        "DestinationName": "San Francisco",
+                        "Monitored": true,
+                        "InCongestion": null,
+                        "VehicleLocation": {
+                            "Longitude": "-121.903107",
+                            "Latitude": "37.3291283"
+                        },
+                        "Bearing": null,
+                        "Occupancy": null,
+                        "VehicleRef": "505",
+                        "MonitoredCall": {
+                            "StopPointRef": "70261",
+                            "StopPointName": "San Jose Diridon Caltrain Station",
+                            "VehicleLocationAtStop": "",
+                            "VehicleAtStop": "",
+                            "AimedArrivalTime": "2022-10-04T17:43:00Z",
+                            "ExpectedArrivalTime": null,
+                            "AimedDepartureTime": "2022-10-04T17:43:00Z",
+                            "ExpectedDepartureTime": "2022-10-04T17:43:00Z",
+                            "Distances": ""
+                        }
+                    }
+                },
+                {
+                    "RecordedAtTime": "2022-10-04T17:39:39Z",
+                    "MonitoringRef": "70022",
+                    "MonitoredVehicleJourney": {
+                        "LineRef": "L1",
+                        "DirectionRef": "S",
+                        "FramedVehicleJourneyRef": {
+                            "DataFrameRef": "2022-10-04",
+                            "DatedVehicleJourneyRef": "114"
+                        },
+                        "PublishedLineName": "Local",
+                        "OperatorRef": "CT",
+                        "OriginRef": "70012",
+                        "OriginName": "San Francisco Caltrain Station",
+                        "DestinationRef": "70272",
+                        "DestinationName": "Tamien",
+                        "Monitored": true,
+                        "InCongestion": null,
+                        "VehicleLocation": {
+                            "Longitude": "-122.39621",
+                            "Latitude": "37.7752419"
+                        },
+                        "Bearing": null,
+                        "Occupancy": null,
+                        "VehicleRef": "114",
+                        "MonitoredCall": {
+                            "StopPointRef": "70022",
+                            "StopPointName": "22nd Street Caltrain Station",
+                            "VehicleLocationAtStop": "",
+                            "VehicleAtStop": "",
+                            "AimedArrivalTime": "2022-10-04T17:43:00Z",
+                            "ExpectedArrivalTime": "2022-10-04T17:40:12Z",
+                            "AimedDepartureTime": "2022-10-04T17:43:00Z",
+                            "ExpectedDepartureTime": "2022-10-04T17:43:30Z",
+                            "Distances": ""
+                        }
+                    }
+                },
+                {
+                    "RecordedAtTime": "2022-10-04T17:39:39Z",
+                    "MonitoringRef": "70092",
+                    "MonitoredVehicleJourney": {
+                        "LineRef": "L5",
+                        "DirectionRef": "S",
+                        "FramedVehicleJourneyRef": {
+                            "DataFrameRef": "2022-10-04",
+                            "DatedVehicleJourneyRef": "506"
+                        },
+                        "PublishedLineName": "LTD 5",
+                        "OperatorRef": "CT",
+                        "OriginRef": "70012",
+                        "OriginName": "San Francisco Caltrain Station",
+                        "DestinationRef": "70262",
+                        "DestinationName": "San Jose Diridon",
+                        "Monitored": true,
+                        "InCongestion": null,
+                        "VehicleLocation": {
+                            "Longitude": "-122.346558",
+                            "Latitude": "37.5807991"
+                        },
+                        "Bearing": null,
+                        "Occupancy": null,
+                        "VehicleRef": "506",
+                        "MonitoredCall": {
+                            "StopPointRef": "70092",
+                            "StopPointName": "San Mateo Caltrain Station",
+                            "VehicleLocationAtStop": "",
+                            "VehicleAtStop": "",
+                            "AimedArrivalTime": "2022-10-04T17:40:00Z",
+                            "ExpectedArrivalTime": "2022-10-04T17:42:37Z",
+                            "AimedDepartureTime": "2022-10-04T17:40:00Z",
+                            "ExpectedDepartureTime": "2022-10-04T17:43:37Z",
+                            "Distances": ""
+                        }
+                    }
+                },
+                {
+                    "RecordedAtTime": "2022-10-04T17:39:39Z",
+                    "MonitoringRef": "70121",
+                    "MonitoredVehicleJourney": {
+                        "LineRef": "L1",
+                        "DirectionRef": "N",
+                        "FramedVehicleJourneyRef": {
+                            "DataFrameRef": "2022-10-04",
+                            "DatedVehicleJourneyRef": "113"
+                        },
+                        "PublishedLineName": "Local",
+                        "OperatorRef": "CT",
+                        "OriginRef": "70271",
+                        "OriginName": "Tamien Caltrain Station",
+                        "DestinationRef": "70011",
+                        "DestinationName": "San Francisco",
+                        "Monitored": true,
+                        "InCongestion": null,
+                        "VehicleLocation": {
+                            "Longitude": "-122.229507",
+                            "Latitude": "37.4846001"
+                        },
+                        "Bearing": null,
+                        "Occupancy": null,
+                        "VehicleRef": "113",
+                        "MonitoredCall": {
+                            "StopPointRef": "70121",
+                            "StopPointName": "Belmont Caltrain Station",
+                            "VehicleLocationAtStop": "",
+                            "VehicleAtStop": "",
+                            "AimedArrivalTime": "2022-10-04T17:45:00Z",
+                            "ExpectedArrivalTime": "2022-10-04T17:43:42Z",
+                            "AimedDepartureTime": "2022-10-04T17:45:00Z",
+                            "ExpectedDepartureTime": "2022-10-04T17:45:30Z",
+                            "Distances": ""
+                        }
+                    }
+                },
+                {
+                    "RecordedAtTime": "2022-10-04T17:39:39Z",
+                    "MonitoringRef": "70192",
+                    "MonitoredVehicleJourney": {
+                        "LineRef": "L1",
+                        "DirectionRef": "S",
+                        "FramedVehicleJourneyRef": {
+                            "DataFrameRef": "2022-10-04",
+                            "DatedVehicleJourneyRef": "112"
+                        },
+                        "PublishedLineName": "Local",
+                        "OperatorRef": "CT",
+                        "OriginRef": "70012",
+                        "OriginName": "San Francisco Caltrain Station",
+                        "DestinationRef": "70272",
+                        "DestinationName": "Tamien",
+                        "Monitored": true,
+                        "InCongestion": null,
+                        "VehicleLocation": {
+                            "Longitude": "-122.181778",
+                            "Latitude": "37.4543915"
+                        },
+                        "Bearing": null,
+                        "Occupancy": null,
+                        "VehicleRef": "112",
+                        "MonitoredCall": {
+                            "StopPointRef": "70192",
+                            "StopPointName": "California Avenue Caltrain Station",
+                            "VehicleLocationAtStop": "",
+                            "VehicleAtStop": "",
+                            "AimedArrivalTime": "2022-10-04T17:45:00Z",
+                            "ExpectedArrivalTime": "2022-10-04T17:43:02Z",
+                            "AimedDepartureTime": "2022-10-04T17:45:00Z",
+                            "ExpectedDepartureTime": "2022-10-04T17:45:30Z",
+                            "Distances": ""
+                        }
+                    }
+                },
+                {
+                    "RecordedAtTime": "2022-10-04T17:39:39Z",
+                    "MonitoringRef": "70112",
+                    "MonitoredVehicleJourney": {
+                        "LineRef": "L5",
+                        "DirectionRef": "S",
+                        "FramedVehicleJourneyRef": {
+                            "DataFrameRef": "2022-10-04",
+                            "DatedVehicleJourneyRef": "506"
+                        },
+                        "PublishedLineName": "LTD 5",
+                        "OperatorRef": "CT",
+                        "OriginRef": "70012",
+                        "OriginName": "San Francisco Caltrain Station",
+                        "DestinationRef": "70262",
+                        "DestinationName": "San Jose Diridon",
+                        "Monitored": true,
+                        "InCongestion": null,
+                        "VehicleLocation": {
+                            "Longitude": "-122.346558",
+                            "Latitude": "37.5807991"
+                        },
+                        "Bearing": null,
+                        "Occupancy": null,
+                        "VehicleRef": "506",
+                        "MonitoredCall": {
+                            "StopPointRef": "70112",
+                            "StopPointName": "Hillsdale Caltrain Station",
+                            "VehicleLocationAtStop": "",
+                            "VehicleAtStop": "",
+                            "AimedArrivalTime": "2022-10-04T17:44:00Z",
+                            "ExpectedArrivalTime": "2022-10-04T17:45:45Z",
+                            "AimedDepartureTime": "2022-10-04T17:44:00Z",
+                            "ExpectedDepartureTime": "2022-10-04T17:46:45Z",
+                            "Distances": ""
+                        }
+                    }
+                },
+                {
+                    "RecordedAtTime": "2022-10-04T17:39:39Z",
+                    "MonitoringRef": "70271",
+                    "MonitoredVehicleJourney": {
+                        "LineRef": "L1",
+                        "DirectionRef": "N",
+                        "FramedVehicleJourneyRef": {
+                            "DataFrameRef": "2022-10-04",
+                            "DatedVehicleJourneyRef": "115"
+                        },
+                        "PublishedLineName": "Local",
+                        "OperatorRef": "CT",
+                        "OriginRef": "70271",
+                        "OriginName": "Tamien Caltrain Station",
+                        "DestinationRef": "70011",
+                        "DestinationName": "San Francisco",
+                        "Monitored": true,
+                        "InCongestion": null,
+                        "VehicleLocation": {
+                            "Longitude": "-121.884659",
+                            "Latitude": "37.3124619"
+                        },
+                        "Bearing": null,
+                        "Occupancy": null,
+                        "VehicleRef": "115",
+                        "MonitoredCall": {
+                            "StopPointRef": "70271",
+                            "StopPointName": "Tamien Caltrain Station",
+                            "VehicleLocationAtStop": "",
+                            "VehicleAtStop": "",
+                            "AimedArrivalTime": "2022-10-04T17:48:00Z",
+                            "ExpectedArrivalTime": null,
+                            "AimedDepartureTime": "2022-10-04T17:48:00Z",
+                            "ExpectedDepartureTime": "2022-10-04T17:48:00Z",
+                            "Distances": ""
+                        }
+                    }
+                },
+                {
+                    "RecordedAtTime": "2022-10-04T17:39:39Z",
+                    "MonitoringRef": "70241",
+                    "MonitoredVehicleJourney": {
+                        "LineRef": "L5",
+                        "DirectionRef": "N",
+                        "FramedVehicleJourneyRef": {
+                            "DataFrameRef": "2022-10-04",
+                            "DatedVehicleJourneyRef": "505"
+                        },
+                        "PublishedLineName": "LTD 5",
+                        "OperatorRef": "CT",
+                        "OriginRef": "70261",
+                        "OriginName": "San Jose Diridon Caltrain Station",
+                        "DestinationRef": "70011",
+                        "DestinationName": "San Francisco",
+                        "Monitored": true,
+                        "InCongestion": null,
+                        "VehicleLocation": {
+                            "Longitude": "-121.903107",
+                            "Latitude": "37.3291283"
+                        },
+                        "Bearing": null,
+                        "Occupancy": null,
+                        "VehicleRef": "505",
+                        "MonitoredCall": {
+                            "StopPointRef": "70241",
+                            "StopPointName": "Santa Clara Caltrain Station",
+                            "VehicleLocationAtStop": "",
+                            "VehicleAtStop": "",
+                            "AimedArrivalTime": "2022-10-04T17:49:00Z",
+                            "ExpectedArrivalTime": "2022-10-04T17:41:15Z",
+                            "AimedDepartureTime": "2022-10-04T17:49:00Z",
+                            "ExpectedDepartureTime": "2022-10-04T17:49:00Z",
+                            "Distances": ""
+                        }
+                    }
+                },
+                {
+                    "RecordedAtTime": "2022-10-04T17:39:39Z",
+                    "MonitoringRef": "70021",
+                    "MonitoredVehicleJourney": {
+                        "LineRef": "L5",
+                        "DirectionRef": "N",
+                        "FramedVehicleJourneyRef": {
+                            "DataFrameRef": "2022-10-04",
+                            "DatedVehicleJourneyRef": "503"
+                        },
+                        "PublishedLineName": "LTD 5",
+                        "OperatorRef": "CT",
+                        "OriginRef": "70261",
+                        "OriginName": "San Jose Diridon Caltrain Station",
+                        "DestinationRef": "70011",
+                        "DestinationName": "San Francisco",
+                        "Monitored": true,
+                        "InCongestion": null,
+                        "VehicleLocation": {
+                            "Longitude": "-122.386528",
+                            "Latitude": "37.5996819"
+                        },
+                        "Bearing": null,
+                        "Occupancy": null,
+                        "VehicleRef": "503",
+                        "MonitoredCall": {
+                            "StopPointRef": "70021",
+                            "StopPointName": "22nd Street Caltrain Station",
+                            "VehicleLocationAtStop": "",
+                            "VehicleAtStop": "",
+                            "AimedArrivalTime": "2022-10-04T17:51:00Z",
+                            "ExpectedArrivalTime": "2022-10-04T17:48:27Z",
+                            "AimedDepartureTime": "2022-10-04T17:51:00Z",
+                            "ExpectedDepartureTime": "2022-10-04T17:51:15Z",
+                            "Distances": ""
+                        }
+                    }
+                },
+                {
+                    "RecordedAtTime": "2022-10-04T17:39:39Z",
+                    "MonitoringRef": "70142",
+                    "MonitoredVehicleJourney": {
+                        "LineRef": "L5",
+                        "DirectionRef": "S",
+                        "FramedVehicleJourneyRef": {
+                            "DataFrameRef": "2022-10-04",
+                            "DatedVehicleJourneyRef": "506"
+                        },
+                        "PublishedLineName": "LTD 5",
+                        "OperatorRef": "CT",
+                        "OriginRef": "70012",
+                        "OriginName": "San Francisco Caltrain Station",
+                        "DestinationRef": "70262",
+                        "DestinationName": "San Jose Diridon",
+                        "Monitored": true,
+                        "InCongestion": null,
+                        "VehicleLocation": {
+                            "Longitude": "-122.346558",
+                            "Latitude": "37.5807991"
+                        },
+                        "Bearing": null,
+                        "Occupancy": null,
+                        "VehicleRef": "506",
+                        "MonitoredCall": {
+                            "StopPointRef": "70142",
+                            "StopPointName": "Redwood City Caltrain Station",
+                            "VehicleLocationAtStop": "",
+                            "VehicleAtStop": "",
+                            "AimedArrivalTime": "2022-10-04T17:51:00Z",
+                            "ExpectedArrivalTime": "2022-10-04T17:51:23Z",
+                            "AimedDepartureTime": "2022-10-04T17:51:00Z",
+                            "ExpectedDepartureTime": "2022-10-04T17:52:23Z",
+                            "Distances": ""
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}
