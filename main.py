@@ -4,7 +4,12 @@ from discord import app_commands
 from discord.errors import NotFound
 from discord.ext.commands import Bot, CommandNotFound
 from discord.app_commands.errors import CommandNotFound as AppCommandNotFound
+from dotenv import load_dotenv
+from os import getenv
 from utils import setupLogger
+
+load_dotenv()
+TOKEN = getenv('TOKEN')
 
 logger = setupLogger()
 
@@ -56,4 +61,4 @@ async def reload(interaction = discord.Interaction):
     print(client.cogs)
 
 
-client.run('MTAyMTU1ODc2NzU4Mzc1NjI5MQ.G4iXKA.mK1zA4IijPWeBguY69w6oEpVG8szOS83ZjVh6o')
+client.run(TOKEN)

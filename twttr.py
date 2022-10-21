@@ -1,15 +1,17 @@
 
 import requests
-import json
+from dotenv import load_dotenv
+from os import getenv
 
-bearer_token = "AAAAAAAAAAAAAAAAAAAAAFcThQEAAAAAcjxbHPHMueWPV%2FSSFhhRJrKnTtg%3DLAa7WhtTMJoWAjHVFCV076D232Hskt2khXmeEIK4zxOCfxfUQw"
+load_dotenv()
+BEARER_TOKEN = getenv('TWITTER_TOKEN')
 
 def bearer_oauth(r):
     """
     Method required by bearer token authentication.
     """
 
-    r.headers["Authorization"] = f"Bearer {bearer_token}"
+    r.headers["Authorization"] = f"Bearer {BEARER_TOKEN}"
     r.headers["User-Agent"] = "CaltrainAlerts"
     return r
 
