@@ -4,10 +4,12 @@ import discord
 import html
 import logging
 import stations
-from discord import app_commands
 import twttr
 import traceback
+from bot import CaltrainAlerts
+from discord import app_commands
 from discord.ext import commands, tasks
+from discord.app_commands.errors import CommandInvokeError
 from datetime import datetime
 from utils import nowstr, timeConvert, toDateTime
 
@@ -16,7 +18,7 @@ log = logging.getLogger("CaltrainAlerts.\u001b[38;5;87;1mTwitterAlerts\u001b[0m"
 
 class TwitterAlerts(commands.Cog):
     def __init__(self, client):
-        self.client = client
+        self.client: CaltrainAlerts = client
         self.queue_tasks = []
         self.station_tasks = {}
         self.recent_tweet = {}
@@ -24,8 +26,15 @@ class TwitterAlerts(commands.Cog):
         self.status = self.client.cogs['Status']
         
     async def cog_command_error(self, ctx, error):
+        print(f"twitteralerts: {type(error)}")
         channel = self.client.get_channel(1017455639578030161)
         await channel.send("```py\n"+str(error)+"\n```")
+        if isinstance(error, CommandInvokeError):
+            
+            log.exception(error.__cause__)
+            return
+        else:
+            log.exception(error)
 
     """async def cog_load(self, ctx):
         log.debug("cog_load")
@@ -38,10 +47,10 @@ class TwitterAlerts(commands.Cog):
     async def cog_unload(self) -> None:
         """Cancel the init task and scheduled tasks when the cog unloads."""
         log.debug("Cog unload: cancelling all tasks")
+        print(self.queue_tasks)
         for task in self.queue_tasks:
             task.cancel()
             log.debug(task.is_running())
-
 
     @app_commands.command(name="start")
     async def start_tracker(self, interaction: discord.Interaction):
@@ -164,53 +173,53 @@ class TwitterAlerts(commands.Cog):
                 for station_check in station_checking:
                     log.debug(f"Found station(s): {station_check}")
                     if "ended" in text:
+                        log.debug("Ended")
                         stations.Stations[station_check].single_tracking = ""
                         try:
                             self.station_tasks[station_check].cancel()
                         except KeyError:
                             log.debug("KeyError in station_tasks, probably a 'until further notice' tweet")
-
-                        log.debug("Cancelled task: {station_check}")
-                    else:
-                        if "beginning" in text.lower():
+                        log.debug(f"Cancelled task: {station_check}")
+                    else: # Not ended single tracking
+                        if "beginning" in text.lower(): # Beginning single tracking
                             log.debug("Beginning")
-                            amorpm = ""
                             if "am" in text.lower() or "pm" in text.lower():
                                 amorpm = "am"
                                 # Time, not date
                                 date = datetime.now()
                                 if ":" in text:
+                                    log.debug(": in text")
                                     hours = int(text.split('until')[1].split(':')[0])
-                                    hours_raw = hours
                                     if "pm" in text.lower():
-                                        amorpm = "pm"
+                                        log.debug("pm in text")
                                         hours += 12
                                     mins_raw = (text.split(':')[1].split('am' if 'am' in text.lower() else 'pm')[0])
-                                    mins = int(mins_raw)
-                                    new_period=date.replace(hour=hours, minute=mins).strftime('%Y-%m-%d-%H:%M')
-                            else:
+                                    new_period = date.replace(hour=hours, minute=int(mins_raw)).strftime('%Y-%m-%d-%H:%M')
+
+                            else: # No AM or PM found
                                 if ":" in text:
-                                    amorpm = "pm"
+                                    log.debug(": in text 2")
                                     date = datetime.now()
                                     ttime = text.split('until')[1].split('.')[0].split(":")
                                     hours = int(ttime[0])
-                                    hours_raw = ttime[0]
                                     minutes = int(ttime[1])
-                                    mins_raw = ttime[1]
                                     hours += 12
-                                    new_period = date.replace(hour=hours, minute=minutes).strftime('%Y-%m-%d-%H:%M')                                    
+                                    date = date.replace(hour=hours, minute=minutes)
+                                    new_period = date.strftime('%Y-%m-%d-%H:%M')
+                                    log.debug(f"new_period = {new_period}")                                   
 
-                                else:
+                                else: # Until further notice (no time found)
+                                    log.debug("No : in text")
                                     stations.Stations[station_check].single_tracking = f"Boarding on {'southbound' if 'southbound' in text else 'northbound' if 'northbound' in text else 'none'} platform until further notice. **BETA TESTING**"
                                     # await self.status.update_embed()
                                     continue # Until further notice tweets
 
-                        stations.Stations[station_check].single_tracking = f"Boarding on {'southbound' if 'southbound' in text else 'northbound' if 'northbound' in text else 'none'} platform until {hours_raw}:{mins_raw}{amorpm}."
+                        stations.Stations[station_check].single_tracking = f"Boarding on {'southbound' if 'southbound' in text else 'northbound' if 'northbound' in text else 'none'} platform until <t:{int(date.timestamp())}:t>"#{hours_raw}:{mins_raw}{amorpm}."
                         s = await self.create_background_task(time=new_period, station=stations.Stations[station_check])
                         _task = self.client.loop.create_task(s(self, new_period, stations.Stations[station_check]))
                         self.queue_tasks.append(_task)
                         self.station_tasks[station_check] = _task
-                        #await self.status.update_embed()
+                        await self.status.update_embed()
                 await self.status.update_embed()
             else:
                 log.warn("Station check is none :(")
@@ -251,6 +260,25 @@ class TwitterAlerts(commands.Cog):
         await self.scan_tweet({'text': text})
         await interaction.response.send_message("Triggered end fake single tracking event!", ephemeral=True)
         log.debug("Faked ending single tracking event!")
+
+    @app_commands.command(name="get_recent_tweet")
+    async def get_recent_tweet(self, interaction: discord.Interaction):
+        """Get the most recent tweet"""
+        r = twttr.testrecent()
+        print(r['data'][0])
+
+        user_embed = discord.Embed(
+            title="Most Recent Tweet",
+            description=html.unescape(r['data'][0]['text']),
+            color=0x00acee,
+            url=f"https://twitter.com/CaltrainAlerts/status/{r['data'][0]['id']}"
+        )
+        user_embed.set_image(url="https://twitter.com/CaltrainAlerts/photo")
+        user_embed.set_author(name="CaltrainAlerts", icon_url="https://cdn.discordapp.com/attachments/1017455639578030161/1017486168876650576/caltrainlogo.jpg")
+        user_embed.set_footer(text=f"Time: {timeConvert(toDateTime(r['data'][0]['created_at']))}")
+        await interaction.response.send_message(embed=user_embed)
+        await self.scan_tweet(r['data'][0])
+
 
    
 async def setup(bot):
