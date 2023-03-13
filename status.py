@@ -1,21 +1,34 @@
 
 import discord
 import logging
+from bot import CaltrainAlerts
 from datetime import datetime
 from discord import app_commands
 from discord.ext import commands, tasks
+#from main import CaltrainAlerts
 from zone import Zone_1, Zone_2, Zone_3, Zone_4, Zone_5, Zone_6
 
 log = logging.getLogger("CaltrainAlerts.\u001b[38;5;208;1mStatus\u001b[0m")
 
 class Status(commands.Cog):
     def __init__(self, client):
-        self.client = client
+        self.client: CaltrainAlerts = client
         self.recent_tweet = {}
         
     async def cog_command_error(self, ctx, error):
         channel = self.client.get_channel(1017455639578030161)
         await channel.send("```py\n"+str(error)+"\n```")
+
+    async def cog_unload(self) -> None:
+        """Cancel the init task and scheduled tasks when the cog unloads."""
+        log.debug("Cog unload: cancelling all tasks")
+        for task in self.queue_tasks:
+            task.cancel()
+            log.debug(task.is_running())
+
+        if self.update_status.is_running():
+            log.debug("Cog unload: cancelling update_status")
+            self.update_status.cancel()
 
 
     @app_commands.command(name="status_test")
@@ -23,7 +36,8 @@ class Status(commands.Cog):
         """Testing statuses"""
 
         status_embed = discord.Embed(
-            title="Caltrain Status"
+            title="Caltrain Status",
+            description=f"Last updated: <t:{int(datetime.now().timestamp())}:F>"
         )
 
         def zone_txt(zone):
@@ -69,7 +83,8 @@ class Status(commands.Cog):
 
         #status_embed = msg.embeds[0]
         status_embed = discord.Embed(
-            title="Caltrain Status"
+            title="Caltrain Status",
+            description=f"Last updated: <t:{int(datetime.now().timestamp())}:F>"
         )
 
         def zone_txt(zone):
@@ -100,8 +115,7 @@ class Status(commands.Cog):
         status_embed.add_field(name="Zone 4", value=zone_txt(Zone_4), inline=False)
         status_embed.add_field(name="Zone 5", value=zone_txt(Zone_5), inline=False)
         status_embed.add_field(name="Zone 6", value=zone_txt(Zone_6), inline=False)
-        status_embed.set_footer(text=f"Last updated: {datetime.now().strftime('%H:%M:%S')}")
-
+        status_embed.set_footer(text=f"Last updated: {datetime.now().strftime('%H:%M.%S %p')}")
         log.info("editing message")
         await msg.edit(embed=status_embed)
                 
