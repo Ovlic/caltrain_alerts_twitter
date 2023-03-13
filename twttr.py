@@ -57,6 +57,5 @@ def tco_to_link(url):
         return resp.headers["Location"]
     else:
         return None
-# DISCORD BOT TOKEN: MTAyMTU1ODc2NzU4Mzc1NjI5MQ.G4iXKA.mK1zA4IijPWeBguY69w6oEpVG8szOS83ZjVh6o
 
 # Authenticate to Twitter
