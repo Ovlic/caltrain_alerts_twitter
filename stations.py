@@ -417,6 +417,7 @@ Gilroy = Station(stations_raw['Gilroy'])
 Stations = {
    'San Francisco': San_Francisco,
    '22nd Street': Twenty_Second_Street,
+   '22nd St': Twenty_Second_Street,
    'Bayshore': Bayshore,
    'South San Francisco': South_San_Francisco,
    'San Bruno': San_Bruno,
@@ -451,7 +452,8 @@ Stations = {
 def search_for_station_name(text: str):
    returned_stations = []
    for key in Stations:
-      if Stations[key].name.lower() in text.lower():
+      # if Stations[key].name.lower() in text.lower():
+      if key.lower() in text.lower():
          returned_stations.append(key)
       elif Stations[key].abbrev.lower() in text.lower():
          returned_stations.append(key)
